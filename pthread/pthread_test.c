@@ -13,6 +13,7 @@ void printids(const char *s)
     pid = getpid();
     tid = pthread_self();
     printf("%s pid %u tid %u (0x%x)\n", s, (unsigned int)pid, (unsigned int)tid, (unsigned int)tid);
+    sleep(2);
 }
 
 void *thr_fn(void *arg)
@@ -28,6 +29,6 @@ int main(void)
     if (err != 0)
     printf("can't create thread: %s\n", strerror(err));
     printids("main thread:");
-    sleep(1);
+    sleep(3);
     exit(0);
 }
